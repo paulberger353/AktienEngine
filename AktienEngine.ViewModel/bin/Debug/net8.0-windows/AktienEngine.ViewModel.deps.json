@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "AktienEngine.ViewModel/1.0.0": {
+        "dependencies": {
+          "AktienEngine.Model": "1.0.0"
+        },
+        "runtime": {
+          "AktienEngine.ViewModel.dll": {}
+        }
+      },
+      "AktienEngine.Model/1.0.0": {
+        "runtime": {
+          "AktienEngine.Model.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AktienEngine.ViewModel/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AktienEngine.Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,15 @@
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.ViewModel\obj\Debug\net8.0-windows\AktienEngine.ViewModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.ViewModel\obj\Debug\net8.0-windows\AktienEngine.ViewModel.AssemblyInfoInputs.cache
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.ViewModel\obj\Debug\net8.0-windows\AktienEngine.ViewModel.AssemblyInfo.cs
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.ViewModel\obj\Debug\net8.0-windows\AktienEngine.ViewModel.csproj.CoreCompileInputs.cache
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.ViewModel\bin\Debug\net8.0-windows\AktienEngine.ViewModel.deps.json
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.ViewModel\bin\Debug\net8.0-windows\AktienEngine.ViewModel.dll
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.ViewModel\bin\Debug\net8.0-windows\AktienEngine.ViewModel.pdb
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.ViewModel\bin\Debug\net8.0-windows\AktienEngine.Model.dll
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.ViewModel\bin\Debug\net8.0-windows\AktienEngine.Model.pdb
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.ViewModel\obj\Debug\net8.0-windows\AktienEngine.ViewModel.csproj.AssemblyReference.cache
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.ViewModel\obj\Debug\net8.0-windows\AktienEn.AEA2719D.Up2Date
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.ViewModel\obj\Debug\net8.0-windows\AktienEngine.ViewModel.dll
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.ViewModel\obj\Debug\net8.0-windows\refint\AktienEngine.ViewModel.dll
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.ViewModel\obj\Debug\net8.0-windows\AktienEngine.ViewModel.pdb
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.ViewModel\obj\Debug\net8.0-windows\ref\AktienEngine.ViewModel.dll

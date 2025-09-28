@@ -1,0 +1,28 @@
+﻿<Window x:Class="AktienEngine.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:view="clr-namespace:AktienEngine.View"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodel="clr-namespace:AktienEngine.ViewModel;assembly=AktienEngine.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:VMMainWindow}"
+        mc:Ignorable="d"
+        Title="AktienEngine" Height="700" Width="1200">
+    <Window.DataContext>
+        <viewmodel:VMMainWindow/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <!-- DataTemplates für UserControls -->
+        <DataTemplate DataType="{x:Type viewmodel:VMMainWindow}">
+            <view:LauncherWindow/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:VMCrashOrBoom}">
+            <view:CrashOrBoom/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:VMNewsTrader}">
+            <view:NewsGame/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <ContentControl Content="{Binding CurrentGame}"/>
+    </Grid>
+</Window>
