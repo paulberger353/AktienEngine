@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "nGmXECMYw9M=",
-  "success": true,
-  "projectFilePath": "C:\\Users\\Paul\\source\\repos\\AktienEngine.View\\AktienEngine.ViewModel\\AktienEngine.ViewModel.csproj",
+  "dgSpecHash": "sGmQuQUmX5lxEeiwr6VFUojrt8OTRF8W92aC18RmNf0OXfr3U8KK5pkm6FliPi3D2DkZnD/yxvTVJKNSoLEoVw==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\bergpa\\source\\repos\\AktienEngine\\AktienEngine.ViewModel\\AktienEngine.ViewModel.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1105",
+      "level": "Error",
+      "message": "Die Projektinformationen für \"AktienEngine.ViewModel\" können nicht gelesen werden: Ungültiger Frameworkbezeichner \"\"."
+    }
+  ]
 }

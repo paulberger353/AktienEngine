@@ -7,6 +7,12 @@
              xmlns:viewmodel="clr-namespace:AktienEngine.ViewModel;assembly=AktienEngine.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:VMMainWindow}"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    <Grid Background="Gray">
+=======
+>>>>>>> HEAD@{1}
     <Grid Background="{StaticResource DarkBlue}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.6*"/>
@@ -58,5 +64,9 @@
         <Grid Grid.Row="1">
             
         </Grid>
+<<<<<<< HEAD
+=======
+>>>>>>> d7eff0b (Neue Bilder eingefugt)
+>>>>>>> HEAD@{1}
     </Grid>
 </UserControl>
