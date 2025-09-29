@@ -43,7 +43,14 @@ namespace AktienEngine.ViewModel
         public ICommand SelectCOB { get; }
         public ICommand SelectNG { get; }
 
-
+        private int selectedImage = -1;
+        public int SelectedImage
+        {
+            get => selectedImage;
+            set { selectedImage = value; 
+                RaisePropertyChanged(nameof(SelectedImage)); 
+            }
+        }
 
         /**private string _labText;
 

@@ -9,6 +9,40 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="CrashOrBoom\COB_Gamevorschau.png" />
+    <None Remove="CrashOrBoom\COB_Info.png" />
+    <None Remove="Default\Platzhalter_Game.webp" />
+    <None Remove="Launcher\COB_Gamevorschau.png" />
+    <None Remove="Launcher\NT_Gamevorschau.png" />
+    <None Remove="NewsTrader\NT_Gamevorschau.png" />
+    <None Remove="NewsTrader\NT_Info.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="CrashOrBoom\COB_Gamevorschau.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CrashOrBoom\COB_Info.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Default\Platzhalter_Game.webp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Launcher\COB_Gamevorschau.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Launcher\NT_Gamevorschau.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NewsTrader\NT_Gamevorschau.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NewsTrader\NT_Info.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AktienEngine.ViewModel\AktienEngine.ViewModel.csproj" />
   </ItemGroup>
 

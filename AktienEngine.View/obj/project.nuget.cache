@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "qD1CfWaHm8oA2m6fA3AdVqyDVfmhsrhFA6pY8vYYzLUdllAmZG+qy5KM+n//W/4V/5gpewQrE4YhIWuVvOGBgw==",
   "success": false,
   "projectFilePath": "C:\\Users\\bergpa\\source\\repos\\AktienEngine\\AktienEngine.View\\AktienEngine.View.csproj",
@@ -11,4 +12,11 @@
       "message": "Die Projektinformationen für \"AktienEngine.View\" können nicht gelesen werden: Ungültiger Frameworkbezeichner \"\"."
     }
   ]
+=======
+  "dgSpecHash": "0dk5hAFWL+o=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Paul\\source\\repos\\AktienEngine.View\\AktienEngine.View\\AktienEngine.View.csproj",
+  "expectedPackageFiles": [],
+  "logs": []
+>>>>>>> d7eff0b (Neue Bilder eingefugt)
 }
