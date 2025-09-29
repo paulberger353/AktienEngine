@@ -6,8 +6,6 @@
              xmlns:local="clr-namespace:AktienEngine.View"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
-    <Grid Background="Wheat">
-        <Button Content="Crash or Boom" Command="{Binding SelectCOB}" Width="200" Height="50" HorizontalAlignment="Right"/>
-        <Button Content="News Game" Command="{Binding SelectNG}" Width="200" Height="50" HorizontalAlignment="Left"/>
+    <Grid Background="Gray">
     </Grid>
 </UserControl>
