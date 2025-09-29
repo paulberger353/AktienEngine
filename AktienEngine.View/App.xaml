@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:AktienEngine.View"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+         <!--Farben für Launcher-->
+        <SolidColorBrush x:Key="DarkBlue" Color="#FF66686E" />
+        <SolidColorBrush x:Key="MintDark" Color="#FF89B0AE" />
+        <SolidColorBrush x:Key="MintLight" Color="#FFBEE3DB" />
+        <SolidColorBrush x:Key="GreenBlue" Color="#FF3C6E71" />
+        <SolidColorBrush x:Key="NavyBlue" Color="#FF284B63" />
+        <SolidColorBrush x:Key="White" Color="#FFF4F3EE" />
+        <SolidColorBrush x:Key="Black" Color="#FF0A0908" />
     </Application.Resources>
 </Application>

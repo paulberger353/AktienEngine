@@ -1,6 +1,5 @@
 ﻿using AktienEngine.Model.CrashOrBoom;
 using AktienEngine.Model.Helper;
-using AktienEngine.Model.NewsGame;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

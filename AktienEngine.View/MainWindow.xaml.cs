@@ -21,5 +21,11 @@ namespace AktienEngine.View
         {
             InitializeComponent();
         }
+
+        private void Window_Removable(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                this.DragMove();
+        }
     }
 }
