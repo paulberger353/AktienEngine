@@ -1,4 +1,11 @@
 C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\AktienEngine.View.exe
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\CrashOrBoom\COB_Gamevorschau.png
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\CrashOrBoom\COB_Info.png
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\Default\Platzhalter_Game.webp
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\Launcher\COB_Gamevorschau.png
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\Launcher\NT_Gamevorschau.png
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\NewsTrader\NT_Gamevorschau.png
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\NewsTrader\NT_Info.png
 C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\AktienEngine.View.deps.json
 C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\AktienEngine.View.runtimeconfig.json
 C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\AktienEngine.View.dll
@@ -13,6 +20,7 @@ C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\obj\Debug\net8.0-
 C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\obj\Debug\net8.0-windows\MainWindow.g.cs
 C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\obj\Debug\net8.0-windows\NewsGame.g.cs
 C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\obj\Debug\net8.0-windows\AktienEngine.View_Content.g.cs
 C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\obj\Debug\net8.0-windows\AktienEngine.View_MarkupCompile.cache
 C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\obj\Debug\net8.0-windows\AktienEngine.View_MarkupCompile.lref
@@ -33,11 +41,3 @@ C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\obj\Debug\net8.0-
 C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\obj\Debug\net8.0-windows\AktienEngine.View.pdb
 C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\obj\Debug\net8.0-windows\AktienEngine.View.genruntimeconfig.cache
 C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\obj\Debug\net8.0-windows\ref\AktienEngine.View.dll
-C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\Default\Platzhalter_Game.webp
-C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\obj\Debug\net8.0-windows\AktienEngine.View_Content.g.cs
-C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\CrashOrBoom\COB_Gamevorschau.png
-C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\CrashOrBoom\COB_Info.png
-C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\Launcher\COB_Gamevorschau.png
-C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\Launcher\NT_Gamevorschau.png
-C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\NewsTrader\NT_Gamevorschau.png
-C:\Users\Paul\source\repos\AktienEngine.View\AktienEngine.View\bin\Debug\net8.0-windows\NewsTrader\NT_Info.png

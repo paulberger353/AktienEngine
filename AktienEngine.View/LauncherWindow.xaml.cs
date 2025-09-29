@@ -25,20 +25,5 @@ namespace AktienEngine.View
         {
             InitializeComponent();
         }
-        /// <summary>
-        /// Methode wird aufgerufen wenn auf ein Bild geklickt wird.
-        /// Andere Bilder normal Zustand, das geklickte Bild wird hervorgehoben.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Image_SwitchGame(object sender, MouseButtonEventArgs e)
-        {
-            if (sender is Image img && DataContext is VMMainWindow vm)
-            {
-                //Bei klicken auf Image, andere Games normal Zustand, das geklickte Game hervorheben
-                int col = Grid.GetColumn(img);
-                vm.SelectedImage = col; 
-            }
-        }
     }
 }

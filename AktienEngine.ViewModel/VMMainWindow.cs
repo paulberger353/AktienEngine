@@ -23,9 +23,32 @@ namespace AktienEngine.ViewModel
             //Initialisierung der Commands
             SelectCOB = new RelayCommand(_ => CurrentGame = new VMCrashOrBoom(this));
             SelectNG = new RelayCommand(_ => CurrentGame = new VMNewsTrader(this));
+            SelectImageCommand = new RelayCommand(param =>
+            {
+                if (int.TryParse(param?.ToString(), out int index))
+                {
+                    //Klickt er COB?
+                    if (index == 0)
+                    {
+                        _labGametitel = "Crash or Boom";
+                    }
+                    else if (index == 1)
+                    {
+                        _labGametitel = "News Trader";
+                    }
+                    else if (index == 2)
+                    {
+                        //Spiel nicht vorhanden
+                    }
 
-            //Launcher als Standard-Window
+                    RaisePropertyChanged(nameof(LabGametitel));
+                }
+            });
+
+
+            //Launcher als Standard-Window und COB als Standart-Spiel
             CurrentGame = this;
+            SelectImageCommand.Execute(0);
         }
 
         private object _currentGame;
@@ -42,29 +65,21 @@ namespace AktienEngine.ViewModel
         // Commands für die Buttons
         public ICommand SelectCOB { get; }
         public ICommand SelectNG { get; }
+        public ICommand SelectImageCommand { get; }
 
-        private int selectedImage = -1;
-        public int SelectedImage
+        // Property für den Titel des Spiels
+        private string _labGametitel;
+        public string LabGametitel
         {
-            get => selectedImage;
-            set { selectedImage = value; 
-                RaisePropertyChanged(nameof(SelectedImage)); 
+            get => _labGametitel;
+            set
+            {
+                if (_labGametitel != value)
+                {
+                    _labGametitel = value;
+                    RaisePropertyChanged(); // meldet Änderung an die View
+                }
             }
         }
-
-        /**private string _labText;
-
-        //public string LabText
-        //{
-        //    get => _labText;
-        //    set
-        //    {
-        //        if (_labText != value)
-        //        {
-        //            _labText = value;
-        //            RaisePropertyChanged(); // meldet Änderung an die View
-        //        }
-        //    }
-        }**/
-    }
+}
 }

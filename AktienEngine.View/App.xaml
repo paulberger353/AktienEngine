@@ -4,28 +4,18 @@
              xmlns:local="clr-namespace:AktienEngine.View"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+        <!-- Grundfarben -->
         <SolidColorBrush x:Key="Black" Color="#0a0908"/>
         <SolidColorBrush x:Key="White" Color="#ede0d4"/>
         <SolidColorBrush x:Key="Gray" Color="#4a5759"/>
         <SolidColorBrush x:Key="DarkGreen" Color="#344e41"/>
         <SolidColorBrush x:Key="Lightgreen" Color="#588157"/>
-        <SolidColorBrush x:Key="Black" Color="#"/>
-=======
->>>>>>> HEAD@{1}
-         <!--Farben für Launcher-->
-        <SolidColorBrush x:Key="DarkBlue" Color="#FF66686E" />
-        <SolidColorBrush x:Key="MintDark" Color="#FF89B0AE" />
-        <SolidColorBrush x:Key="MintLight" Color="#FFBEE3DB" />
-        <SolidColorBrush x:Key="GreenBlue" Color="#FF3C6E71" />
-        <SolidColorBrush x:Key="NavyBlue" Color="#FF284B63" />
-        <SolidColorBrush x:Key="White" Color="#FFF4F3EE" />
-        <SolidColorBrush x:Key="Black" Color="#FF0A0908" />
-<<<<<<< HEAD
-=======
->>>>>>> d7eff0b (Neue Bilder eingefugt)
->>>>>>> HEAD@{1}
+
+        <!-- Launcher Farben -->
+        <SolidColorBrush x:Key="DarkBlue" Color="#FF66686E"/>
+        <SolidColorBrush x:Key="MintDark" Color="#FF89B0AE"/>
+        <SolidColorBrush x:Key="MintLight" Color="#FFBEE3DB"/>
+        <SolidColorBrush x:Key="GreenBlue" Color="#FF3C6E71"/>
+        <SolidColorBrush x:Key="NavyBlue" Color="#FF284B63"/>
     </Application.Resources>
 </Application>

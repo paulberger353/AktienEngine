@@ -4,22 +4,82 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AktienEngine.View" 
-             xmlns:viewmodel="clr-namespace:AktienEngine.ViewModel;assembly=AktienEngine.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:VMMainWindow}"
+             xmlns:viewmodel="clr-namespace:AktienEngine.ViewModel;assembly=AktienEngine.ViewModel" 
+             d:DataContext="{d:DesignInstance Type=viewmodel:VMMainWindow}"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    <Grid Background="Gray">
-=======
->>>>>>> HEAD@{1}
-    <Grid Background="{StaticResource DarkBlue}">
+
+    <UserControl.Resources>
+        <Style x:Key="GameImageBorder" TargetType="Border">
+            <Setter Property="CornerRadius" Value="30"/>
+            <Setter Property="Background" Value="#ede0d4"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#ede0d4"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Opacity" Value="0.85"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect x:Name="shadow" Color="Transparent" ShadowDepth="0" BlurRadius="0"/>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <!-- Hover rein -->
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <!-- Opacity -->
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                     To="1" Duration="0:0:0.3"/>
+
+                            <!-- Blur -->
+                            <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius"
+                                     To="30" Duration="0:0:0.3"/>
+
+                            <!-- Schatten-Tiefe -->
+                            <DoubleAnimation Storyboard.TargetProperty="(Effect).ShadowDepth"
+                                     To="0" Duration="0:0:0.3"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+
+                <!-- Hover raus -->
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <!-- Opacity zurück -->
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                     To="0.85" Duration="0:0:0.3"/>
+
+                            <!-- Blur zurück -->
+                            <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius"
+                                     To="0" Duration="0:0:0.3"/>
+
+                            <!-- Schatten zurück -->
+                            <DoubleAnimation Storyboard.TargetProperty="(Effect).ShadowDepth"
+                                     To="0" Duration="0:0:0.3"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#233132" Offset="0.0"/>
+                <GradientStop Color="#2a3739" Offset="0.4"/>
+                <GradientStop Color="#0b1819" Offset="0.8"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="0.6*"/>
             <RowDefinition Height="0.4*"/>
         </Grid.RowDefinitions>
 
-        <!--Icons für Spiele-->
+            <!--Icons für Spiele-->
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -27,46 +87,45 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-
-
-            <Image Source="Default/Platzhalter_Game.webp"
-           
-                   Grid.Column="0"
-                   Width="250" 
-                   Height="250" 
-                   Cursor="Hand" Margin="5"
-                   HorizontalAlignment="Right"
-                   MouseLeftButtonUp="Image_SwitchGame" />
-
-            <Image Source="Default/Platzhalter_Game.webp"
-                   Grid.Column="1"
-                   Width="250" 
-                   Height="250"
-                   Margin="5"
-                   Cursor="Hand"
-                   HorizontalAlignment="Center"
-                   MouseLeftButtonUp="Image_SwitchGame" >
+            <Border Grid.Column="0"
+                Style="{StaticResource GameImageBorder}" 
+                HorizontalAlignment="Right" VerticalAlignment="Center">
                 
-            </Image>
+                <Button Width="250" Height="250" Cursor="Hand" Command="{Binding SelectImageCommand}" CommandParameter="0">
+                    <Image Source="/Launcher/COB_Gamevorschau.png"/>
+                </Button>
+            </Border>
 
-            <Image Source="Default/Platzhalter_Game.webp"
-           
-                   Grid.Column="2"
-                   Width="250" 
-                   Height="250" 
-                   Cursor="Hand" Margin="5"
-                   HorizontalAlignment="Left"
-                   MouseLeftButtonUp="Image_SwitchGame" />
+            <Border Grid.Column="1"
+                Style="{StaticResource GameImageBorder}" 
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <Button Width="250" Height="250" Cursor="Hand" Command="{Binding SelectImageCommand}" CommandParameter="1">
+                    <Image Source="/Launcher/NT_Gamevorschau.png"/>
+                </Button>
+            </Border>
+
+            <Border Grid.Column="2"
+                Style="{StaticResource GameImageBorder}" 
+                    Opacity="0.1"
+                HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                <Button Width="250" Height="250" Cursor="Hand" Command="{Binding SelectImageCommand}" CommandParameter="2">
+                    <Image Source="Default/Platzhalter_Game.webp"/>
+                </Button>
+            </Border>
         </Grid>
+
 
 
         <!--Beschreibung und BTNs-->
         <Grid Grid.Row="1">
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.65*" />
+                <RowDefinition Height="0.35*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="{Binding LabGametitel}" Grid.Row="0" FontSize="36" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
-<<<<<<< HEAD
-=======
->>>>>>> d7eff0b (Neue Bilder eingefugt)
->>>>>>> HEAD@{1}
     </Grid>
 </UserControl>
