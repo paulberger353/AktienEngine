@@ -10,13 +10,38 @@
              d:DesignHeight="700" d:DesignWidth="1200">
 
     <UserControl.Resources>
+        <Style x:Key="NoHover" TargetType="Button">
+            <Setter Property="Background" Value="#01FFFFFF"/>
+            <!-- fast transparent, aber für HitTest nötig -->
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Focusable" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Stretch"
+                                      VerticalAlignment="Stretch"
+                                      RecognizesAccessKey="True"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
         <Style x:Key="GameImageBorder" TargetType="Border">
-            <Setter Property="CornerRadius" Value="30"/>
-            <Setter Property="Background" Value="#ede0d4"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Background" Value="{x:Null}"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="BorderBrush" Value="#ede0d4"/>
             <Setter Property="Margin" Value="5"/>
-            <Setter Property="Opacity" Value="0.85"/>
+            <Setter Property="Opacity" Value="0.65"/>
             <Setter Property="Effect">
                 <Setter.Value>
                     <DropShadowEffect x:Name="shadow" Color="Transparent" ShadowDepth="0" BlurRadius="0"/>
@@ -30,15 +55,11 @@
                         <Storyboard>
                             <!-- Opacity -->
                             <DoubleAnimation Storyboard.TargetProperty="Opacity"
-                                     To="1" Duration="0:0:0.3"/>
+                                     To="1" Duration="0:0:0.4"/>
 
                             <!-- Blur -->
                             <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius"
-                                     To="30" Duration="0:0:0.3"/>
-
-                            <!-- Schatten-Tiefe -->
-                            <DoubleAnimation Storyboard.TargetProperty="(Effect).ShadowDepth"
-                                     To="0" Duration="0:0:0.3"/>
+                                     To="25" Duration="0:0:0.15"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
@@ -49,15 +70,11 @@
                         <Storyboard>
                             <!-- Opacity zurück -->
                             <DoubleAnimation Storyboard.TargetProperty="Opacity"
-                                     To="0.85" Duration="0:0:0.3"/>
+                                     To="0.65" Duration="0:0:0.4"/>
 
                             <!-- Blur zurück -->
                             <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius"
-                                     To="0" Duration="0:0:0.3"/>
-
-                            <!-- Schatten zurück -->
-                            <DoubleAnimation Storyboard.TargetProperty="(Effect).ShadowDepth"
-                                     To="0" Duration="0:0:0.3"/>
+                                     To="0" Duration="0:0:0.15"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
@@ -67,9 +84,9 @@
     </UserControl.Resources>
     <Grid>
         <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#233132" Offset="0.0"/>
-                <GradientStop Color="#2a3739" Offset="0.4"/>
+            <LinearGradientBrush StartPoint="-0.5,-0.5" EndPoint="0.8, 1">
+                <GradientStop Color="#1b292a" Offset="0.0"/>
+                <GradientStop Color="#243133" Offset="0.4"/>
                 <GradientStop Color="#0b1819" Offset="0.8"/>
             </LinearGradientBrush>
         </Grid.Background>
@@ -87,12 +104,18 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0"
+            <Border Grid.Column="0" Margin="50 0 0 0"
                 Style="{StaticResource GameImageBorder}" 
-                HorizontalAlignment="Right" VerticalAlignment="Center">
-                
-                <Button Width="250" Height="250" Cursor="Hand" Command="{Binding SelectImageCommand}" CommandParameter="0">
-                    <Image Source="/Launcher/COB_Gamevorschau.png"/>
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <Border.Background>
+                    <ImageBrush ImageSource="/CrashOrBoom/COB_Gamevorschau.png"
+                    Stretch="UniformToFill" />
+                </Border.Background>
+
+                <Button Width="250" Height="250" Cursor="Hand" ClipToBounds="True" Style="{StaticResource NoHover}"
+                        Command="{Binding SelectImageCommand}" CommandParameter="0">
+                    <Grid />
                 </Button>
             </Border>
 
@@ -100,18 +123,35 @@
                 Style="{StaticResource GameImageBorder}" 
                 HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                <Button Width="250" Height="250" Cursor="Hand" Command="{Binding SelectImageCommand}" CommandParameter="1">
-                    <Image Source="/Launcher/NT_Gamevorschau.png"/>
+                <Border.Background>
+                    <ImageBrush ImageSource="/NewsTrader/NT_Gamevorschau.png"
+                    Stretch="UniformToFill" />
+                </Border.Background>
+
+                <Button Width="250" Height="250" Cursor="Hand" ClipToBounds="True" Style="{StaticResource NoHover}"
+                        Command="{Binding SelectImageCommand}" CommandParameter="1">
+                    <Grid />
                 </Button>
             </Border>
 
-            <Border Grid.Column="2"
-                Style="{StaticResource GameImageBorder}" 
-                    Opacity="0.1"
-                HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Border Grid.Column="2" Margin="0 0 50 0"
+        Style="{StaticResource GameImageBorder}" 
+        HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="">
 
-                <Button Width="250" Height="250" Cursor="Hand" Command="{Binding SelectImageCommand}" CommandParameter="2">
-                    <Image Source="Default/Platzhalter_Game.webp"/>
+                <!-- Hintergrundbild -->
+                <Border.Background>
+                    <ImageBrush ImageSource="/BullOrBear/BOB_Gamevorschau.png"
+                    Stretch="UniformToFill" />
+                </Border.Background>
+
+                <!-- Klickbarer Button über dem Bild -->
+                <Button Width="250" Height="250"
+                         Cursor="Hand"
+                        Command="{Binding SelectImageCommand}" 
+                        Style="{StaticResource NoHover}"
+                        CommandParameter="2">
+                    <!-- Leerer Grid-Content, um die Fläche voll zu machen -->
+                    <Grid/>
                 </Button>
             </Border>
         </Grid>
@@ -121,11 +161,90 @@
         <!--Beschreibung und BTNs-->
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.65*" />
-                <RowDefinition Height="0.35*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.8*" />
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.7*" />
+                <ColumnDefinition Width="0.3*" />
+            </Grid.ColumnDefinitions>
 
-            <TextBlock Text="{Binding LabGametitel}" Grid.Row="0" FontSize="36" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding LabGametitel}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+                       Foreground="#ede0d4" FontSize="42" TextDecorations="Underline"
+                       HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="#ede0d4"
+                                      BlurRadius="5"
+                                      ShadowDepth="0"
+                                      Opacity="1" />
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <TextBlock Text="{Binding LabGamebeschreibung}" Grid.Row="1" Grid.Column="0"
+                       Foreground="{StaticResource White}" FontSize="22" 
+                       Width="600" TextWrapping="Wrap" Margin="90 0 0 20"
+                       HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Button Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+                    Content="Los geht's !" Command="{Binding SelectGame}"
+                    BorderBrush="#ede0d4" BorderThickness="2" FontSize="25" Cursor="Hand" >
+
+                <!-- DropShadowEffect direkt auf Button -->
+                <Button.Effect>
+                    <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="0" Opacity="0"/>
+                </Button.Effect>
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="{StaticResource Gray}"/>
+                        <Setter Property="BorderBrush" Value="#ede0d4"/>
+                        <Setter Property="Foreground" Value="#DDDDCC"/>
+                        <Setter Property="FontSize" Value="25"/>
+                        <Setter Property="Width" Value="200"/>
+                        <Setter Property="Height" Value="80"/>
+                        <Setter Property="Margin" Value="0 20 50 0"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border CornerRadius="10"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius"
+                                                 To="40" Duration="0:0:0.2"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="(Effect).Opacity"
+                                                 To="0.8" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius"
+                                                 To="0" Duration="0:0:0.2"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="(Effect).Opacity"
+                                                 To="0" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </Grid>
     </Grid>
 </UserControl>

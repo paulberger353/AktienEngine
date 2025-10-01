@@ -7,10 +7,11 @@
         xmlns:viewmodel="clr-namespace:AktienEngine.ViewModel;assembly=AktienEngine.ViewModel" 
         d:DataContext="{d:DesignInstance Type=viewmodel:VMMainWindow}"
         mc:Ignorable="d"
-        ResizeMode="NoResize"
+        ResizeMode="CanMinimize"
         MouseLeftButtonDown="Window_Removable"
-        Background="Blue"
-        Title="AktienEngine" Height="700" Width="1200">
+        Background="Transparent"
+        Title="AE AktienEngine" Height="750" Width="1200"
+        WindowStyle="None">
     <Window.DataContext>
         <viewmodel:VMMainWindow/>
     </Window.DataContext>
@@ -26,8 +27,74 @@
         <DataTemplate DataType="{x:Type viewmodel:VMNewsTrader}">
             <view:NewsGame/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:VMBullOrBear}">
+            <view:BullOrBear/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
-        <ContentControl Content="{Binding CurrentGame}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.07*" />
+            <RowDefinition Height="0.93*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="{StaticResource Gray}">
+            <Label Content="AE   AktienEngine" 
+                   FontSize="28" FontWeight="Light"          
+                   Margin="120 0 0 0" 
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   ToolTip="Yeah, no shit Sherlock..... thats the Applicationname !"
+                   />
+
+            <Button Content="_" Width="60" Height="25"
+                    HorizontalAlignment="Right" Margin="0 0 100 0"
+                    BorderBrush="Black" BorderThickness="1"
+                    Background="DimGray" FontSize="15"
+                    Click="MinimizeWindow_Click"
+                    ToolTip="Minimize Window">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="5"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Hover-Effekt, der NICHT die Farbe ändert -->
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Content="X" Width="60" Height="25"
+                    HorizontalAlignment="Right" Margin="0 0 20 0"
+                    BorderBrush="Black" BorderThickness="1"
+                    Background="DimGray" FontSize="15"
+                    Click="CloseWindow_Click"
+                    ToolTip="Minimize Window">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="5"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </Grid>
+
+
+        <ContentControl Content="{Binding CurrentGame}" Grid.Row="1"/>
     </Grid>
 </Window>

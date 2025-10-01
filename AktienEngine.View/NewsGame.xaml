@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:AktienEngine.View"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
-    <Grid Background="Blue">
-            
+    <Grid Background="LightGreen">
+        <TextBox FontSize="80" HorizontalAlignment="Left" Margin="383,350,0,0" TextWrapping="Wrap" Text="NewsTrader joooo" VerticalAlignment="Top" Width="692" Height="240"/>
+
     </Grid>
 </UserControl>

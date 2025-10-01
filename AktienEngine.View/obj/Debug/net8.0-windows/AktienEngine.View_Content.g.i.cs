@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bullorbear/bob_gamevorschau.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bullorbear/bob_info.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("crashorboom/cob_gamevorschau.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("crashorboom/cob_info.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("default/platzhalter_game.webp")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("launcher/cob_gamevorschau.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("launcher/nt_gamevorschau.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("newstrader/nt_gamevorschau.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("newstrader/nt_info.png")]
 

@@ -17,15 +17,44 @@ namespace AktienEngine.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Konstruktor des MainWindows
+        /// Initialisiert jeweilgie Application
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Methode wird aufgerufen um das Fenster überall zu halten und zu verschieben
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Removable(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 this.DragMove();
+        }
+
+        /// <summary>
+        /// Methode wird aufgerufen um das Fenster zu schließen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CloseWindow_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        /// <summary>
+        /// Methode wird aufgerufen um das Fenster zu minimieren
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MinimizeWindow_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
         }
     }
 }

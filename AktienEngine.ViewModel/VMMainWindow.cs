@@ -18,30 +18,64 @@ namespace AktienEngine.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        /// <summary>
+        /// Konstruktor des VMMainWindow
+        /// Initialisiert die Commands der Buttons und setzt Standartwerte fest
+        /// </summary>
         public VMMainWindow()
         {
             //Initialisierung der Commands
             SelectCOB = new RelayCommand(_ => CurrentGame = new VMCrashOrBoom(this));
             SelectNG = new RelayCommand(_ => CurrentGame = new VMNewsTrader(this));
+            SelectBOB = new RelayCommand(_ => CurrentGame = new VMBullOrBear(this));
             SelectImageCommand = new RelayCommand(param =>
             {
+                //Wandle Tag in Index um
                 if (int.TryParse(param?.ToString(), out int index))
                 {
                     //Klickt er COB?
                     if (index == 0)
                     {
                         _labGametitel = "Crash or Boom";
+
+                        _labGamebeschreibung = "Stell dich dem riskanten Markt und triff clevere Entscheidungen, " +
+                                                "kauf oder verkauf, bevor ein Crash dein Kapital zerstört – nur wer klug abwägt, kann richtig wachsen.";
                     }
                     else if (index == 1)
                     {
                         _labGametitel = "News Trader";
+
+                        _labGamebeschreibung = "Verwalte fünf Aktien, reagiere schnell auf neue News und stell die Schwierigkeit ein, " +
+                                                "um dein Vermögen effektiv zu steigern. Schaffst du es, die News zu meistern und dein Kapital zu maximieren?";
                     }
                     else if (index == 2)
                     {
-                        //Spiel nicht vorhanden
+                        _labGametitel = "Bull or Bear";
+
+                        _labGamebeschreibung = "Setz auf steigende oder fallende Kurse oder leg einen Bereich fest, in dem du den Markt siehst. " +
+                                                "Dann heißt es nur noch zuschauen, wie dein Kapital wächst oder schwindet – pure Spannung!";
                     }
 
                     RaisePropertyChanged(nameof(LabGametitel));
+                    RaisePropertyChanged(nameof(LabGamebeschreibung));
+                }
+            });
+
+            SelectGame = new RelayCommand(_ => 
+            {
+                //Gucke nach dem ersten buchstaben vom gametitel
+                if (_labGametitel.Substring(0, 1) == "C")
+                {
+                    SelectCOB.Execute(null);
+                }
+                else if (_labGametitel.Substring(0, 1) == "N")
+                {
+                    SelectNG.Execute(null);
+                }
+                else if (_labGametitel.Substring(0, 1) == "B")
+                {
+                    SelectBOB.Execute(null);
                 }
             });
 
@@ -62,24 +96,50 @@ namespace AktienEngine.ViewModel
             }
         }
 
-        // Commands für die Buttons
+        # region Commands für die Buttons
+        public ICommand SelectGame { get; }
         public ICommand SelectCOB { get; }
         public ICommand SelectNG { get; }
+        public ICommand SelectBOB { get; }
         public ICommand SelectImageCommand { get; }
+        #endregion
 
-        // Property für den Titel des Spiels
+        #region Binding Variablen
         private string _labGametitel;
         public string LabGametitel
         {
-            get => _labGametitel;
+            get
+            {
+                if (string.IsNullOrEmpty(_labGametitel))
+                    return string.Empty;
+
+                var sb = new StringBuilder();
+                foreach (char c in _labGametitel)
+                    sb.Append(c).Append(' ');
+
+                return sb.ToString().TrimEnd();
+            }
             set
             {
-                if (_labGametitel != value)
-                {
-                    _labGametitel = value;
-                    RaisePropertyChanged(); // meldet Änderung an die View
-                }
+                if (_labGametitel == value) return;
+                _labGametitel = value;
+                RaisePropertyChanged();
             }
         }
-}
+               
+        private string _labGamebeschreibung;
+        public string LabGamebeschreibung
+        {
+            get { return _labGamebeschreibung; }
+            set
+            {
+                if (_labGamebeschreibung == value) { return; }
+                
+                _labGamebeschreibung = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        #endregion
+    }
 }

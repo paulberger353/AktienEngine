@@ -20,13 +20,9 @@ namespace AktienEngine.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public ICommand BackCommand { get; }    //Button um zurück zum Launcher zu kommen
-        private readonly VMMainWindow mainVM;   //Instanz des MainWindow um es später zu laden
-        private NGScoreboard sb;        //Instanz des Scoreboards 
-
         /// <summary>
-        /// Konstruktor der VMNewsGame Klasse
-        /// Merkt sich das LauncherWindow und initialisiert den Button um zurück zu kommen
+        /// Konstruktor der VMNewsTrader Klasse
+        /// Merkt sich das LauncherWindow und initialisiert die Buttons
         /// </summary>
         /// <param name="_mainVM">Aktuelle Instanz des Launchers</param>
         public VMNewsTrader(VMMainWindow _mainVM)
@@ -34,10 +30,19 @@ namespace AktienEngine.ViewModel
             //LauncherWindow merken
             mainVM = _mainVM;
 
+            //Buttons initialisieren
+            InitializeButtons(_mainVM);
+
             //Scoreboard initialisieren und abbilden
             sb = new NGScoreboard();
             ShowScoreboard();
+        }
 
+        /// <summary>
+        /// Methode wird vom Konstruktor aufgerufen, um die Buttons zu initialisieren
+        /// </summary>
+        private void InitializeButtons(VMMainWindow _mainVM)
+        {
             BackCommand = new RelayCommand(_ =>
             {
                 //Spielstand speichern
@@ -47,6 +52,15 @@ namespace AktienEngine.ViewModel
                 mainVM.CurrentGame = _mainVM;
             });
         }
+
+        #region Propertys und Commands (Buttons)
+        public ICommand BackCommand { get; set; }   //Button um zurück zum Launcher zu kommen
+        
+        private readonly VMMainWindow mainVM;       //Instanz des MainWindow um es später zu laden
+        private NGScoreboard sb;                    //Instanz des Scoreboards 
+
+        #endregion
+
 
         /// <summary>
         /// Methode wird nach dem Starten oder dem einfügen von ienem neuen HIghscore aufgerufen.
