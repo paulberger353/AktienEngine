@@ -1,4 +1,5 @@
-﻿using AktienEngine.Model.Helper;
+﻿using AktienEngine.Model;
+using AktienEngine.Model.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +13,9 @@ namespace AktienEngine.ViewModel
 {
     public class VMMainWindow : INotifyPropertyChanged
     {
+        //Element zum loggen der Zeit
+        public static TimeLogger tl { get; set; }
+
         //Methode und Propertys zum aktualisieren der View
         public event PropertyChangedEventHandler? PropertyChanged;         
         protected void RaisePropertyChanged([CallerMemberName] string propertyName = null)
@@ -61,7 +65,6 @@ namespace AktienEngine.ViewModel
                     RaisePropertyChanged(nameof(LabGamebeschreibung));
                 }
             });
-
             SelectGame = new RelayCommand(_ => 
             {
                 //Gucke nach dem ersten buchstaben vom gametitel
@@ -79,10 +82,12 @@ namespace AktienEngine.ViewModel
                 }
             });
 
-
             //Launcher als Standard-Window und COB als Standart-Spiel
             CurrentGame = this;
             SelectImageCommand.Execute(0);
+
+            //TimeLogger intialisieren und ausgeben
+            tl = new TimeLogger();
         }
 
         private object _currentGame;

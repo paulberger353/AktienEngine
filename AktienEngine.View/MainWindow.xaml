@@ -11,7 +11,8 @@
         MouseLeftButtonDown="Window_Removable"
         Background="Transparent"
         Title="AE AktienEngine" Height="750" Width="1200"
-        WindowStyle="None">
+        WindowStyle="None"
+        Closing="Window_Closing">
     <Window.DataContext>
         <viewmodel:VMMainWindow/>
     </Window.DataContext>

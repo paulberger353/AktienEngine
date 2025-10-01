@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AktienEngine.ViewModel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d59c987ea1b6142b9ffe83ec53ac64f8f3da9609")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+953a64a162fb33935ac32657704bf5b140f80651")]
 [assembly: System.Reflection.AssemblyProductAttribute("AktienEngine.ViewModel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AktienEngine.ViewModel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

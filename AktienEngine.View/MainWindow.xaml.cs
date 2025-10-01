@@ -56,5 +56,16 @@ namespace AktienEngine.View
         {
             WindowState = WindowState.Minimized;
         }
+
+        /// <summary>
+        /// Methode wird ausgeführt wenn das Programm beendet wird
+        /// Daten aus dem TimeLogger und dem Spiel werden gespeichert
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            VMMainWindow.tl.Save();
+        }
     }
 }
