@@ -17,5 +17,39 @@
         <SolidColorBrush x:Key="MintLight" Color="#FFBEE3DB"/>
         <SolidColorBrush x:Key="GreenBlue" Color="#FF3C6E71"/>
         <SolidColorBrush x:Key="NavyBlue" Color="#FF284B63"/>
+        
+        <!--Style für Backbuttons-->
+        <Style x:Key="BackButton" TargetType="Button">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Content" Value="← Launcher" />
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#323232"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#505050"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#707070"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

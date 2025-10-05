@@ -33,9 +33,6 @@ namespace AktienEngine.Model
             filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TimeLogger.xlsx");
 
             //DataSet initialisieren mit Exceldatei befüllen
-            dt = new DataTable("Zeiten") { Columns = { "Datum", "Stunden", "Arbeit" } };
-
-            return;
             dt = LoadExcelFile();    
         }
 

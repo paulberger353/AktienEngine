@@ -1,7 +1,9 @@
 ﻿using AktienEngine.Model.CrashOrBoom;
 using AktienEngine.Model.Helper;
+using AktienEngine.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -37,10 +39,6 @@ namespace AktienEngine.ViewModel
             //LauncherWindow merken
             mainVM = _mainVM;
 
-            //Scoreboard initialisieren
-            sb = new COBScoreboard();
-            ShowScoreboard();
-
             BackToLauncher = new RelayCommand(_ =>
             {
                 //Spielstand speichern
@@ -49,6 +47,18 @@ namespace AktienEngine.ViewModel
                 //Zurück zum Launcher
                 mainVM.CurrentGame = _mainVM;
             });
+
+            //Scoreboard initialisieren
+            sb = new COBScoreboard();
+
+            //Setze Standartwerte
+            _labKontostand = "50000";
+            _labOffenePositionen = "0";
+
+            ShowScoreboard();
+            RaisePropertyChanged(nameof(Highscorelist));
+            RaisePropertyChanged(nameof(LabKontostand));
+            RaisePropertyChanged(nameof(LabOffenePositionen));
         }
 
         /// <summary>
@@ -57,9 +67,54 @@ namespace AktienEngine.ViewModel
         /// </summary>
         private void ShowScoreboard()
         {
-            //Hole dir das aktuelle scoreboard
-            List<(DateTime zeitpunkt, int kontostand)> currentSB = sb.GetScoreboard();
+            _highscorelist = new ObservableCollection<HighscoreEintrag>(sb.GetScoreboard());
+            RaisePropertyChanged(nameof(Highscorelist));
         }
 
+        #region Bindings
+        private string _labKontostand;
+        public string LabKontostand
+        {
+            get { return $"{_labKontostand} €"; }
+            set
+            {
+                if (_labKontostand == value) { return; }
+
+                _labKontostand = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private string _labOffenePositionen;
+        public string LabOffenePositionen
+        {
+            get { return $"{_labOffenePositionen} €"; }
+            set
+            {
+                if (_labOffenePositionen == value) { return; }
+
+                _labOffenePositionen = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private ObservableCollection<HighscoreEintrag> _highscorelist;
+        public ObservableCollection<HighscoreEintrag> Highscorelist
+        {
+            get 
+            {
+                return _highscorelist;
+            }
+            set
+            {
+                if (_highscorelist == value) { return;  }
+                {
+                    _highscorelist = value;
+                    RaisePropertyChanged(nameof(Highscorelist));
+                }   
+            }
+        }
+
+        #endregion
     }
 }

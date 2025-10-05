@@ -3,11 +3,156 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:AktienEngine.View"
+             d:DataContext="{d:DesignInstance Type=viewmodel:VMCrashOrBoom}"
+             xmlns:local="clr-namespace:AktienEngine.View" xmlns:viewmodel="clr-namespace:AktienEngine.ViewModel;assembly=AktienEngine.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
-    <Grid Background="LightBlue">
-        <TextBox FontSize="80" HorizontalAlignment="Left" Margin="383,350,0,0" TextWrapping="Wrap" Text="CrashOrBoom joooo" VerticalAlignment="Top" Width="692" Height="240"/>
 
+    <Grid Background="#778da9">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.75*" />
+            <RowDefinition Height="0.15*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*" />
+            <ColumnDefinition Width="0.3*" />
+        </Grid.ColumnDefinitions>
+
+        <!--Grid für Highscoreliste-->
+        <Border BorderBrush="Black" BorderThickness="2" Background="DimGray"
+                CornerRadius="10 10 0 0" ClipToBounds="True" 
+                Grid.Column="1" Grid.RowSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.15*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.8*" />
+                </Grid.RowDefinitions>
+                
+                <!--Header von HS-->
+                <TextBlock Text="Highscoreliste" TextDecorations="Underline"
+                           FontSize="30" FontWeight="Regular" FontFamily="Lucida Console"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Grid.Row="0"/>
+
+                <Label Grid.Row="1" Margin="10 0 0 0"
+                       FontSize="14" Content="Datum" FontFamily="Lucida Console"
+                       HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+                <Label Grid.Row="1" Margin="0 0 44 0"
+                       FontSize="14" Content="| Kontostand (€)" FontFamily="Lucida Console"
+                       HorizontalAlignment="Right" VerticalAlignment="Top" />
+               
+                <!--Daten von HS-->
+                <ListView Grid.Row="2" ItemsSource="{Binding Highscorelist}"
+                            Margin="10 0 10 10"
+                            FontSize="16" FontFamily="Lucida Console" 
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                            Background="LightGray" IsHitTestVisible="False">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0 2 0 3">
+                                <TextBlock Text="{Binding Zeitpunkt}" />
+                                <TextBlock Text=" | " />
+                                <TextBlock Text="{Binding Kontostand, StringFormat={}{0} €}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Border>
+        
+        <!--Grid für Kontostand etc.-->
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.15*" />
+                <ColumnDefinition Width="0.42*" />
+                <ColumnDefinition Width="0.42*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Style="{StaticResource BackButton}" Grid.Column="0"
+                    Command="{Binding BackToLauncher}">
+            </Button>
+
+            <Label x:Name="Kontostand"  Margin="50 0 0 0"
+                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                FontSize="25" Content="Kontostand:" Grid.Column="1"/>
+
+            <Label x:Name="Kontostand_INT"  Margin="0 0 55 0"
+                   VerticalAlignment="Center" HorizontalAlignment="Right"
+                FontSize="25" Content="{Binding LabKontostand}" Grid.Column="1"/>
+
+            <Label x:Name="OffenePositionen"  Margin="30 0 0 0"
+                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                FontSize="25" Content="Offene Positionen:" Grid.Column="2"/>
+
+            <Label x:Name="OffenePositionen_INT"  Margin="0 0 35 0"
+                   VerticalAlignment="Center" HorizontalAlignment="Right"
+                   FontSize="25" Grid.Column="2" Content="{Binding LabOffenePositionen}"/>
+        </Grid>
+
+        <!--Grid für Spielfeld-->
+        <Grid></Grid>
+        
+        <!--Grid für Buttons-->
+        <Border Grid.ColumnSpan="2" Grid.Row="2" 
+                BorderThickness="2 3 0 0" BorderBrush="Black" CornerRadius="20 0 0 0">
+            <Grid>
+                <!--Buttons zum Kauf/Verkauf-->
+                <Button Grid.Column="0" Content="Buy 1000 €" 
+                        FontSize="25" FontWeight="Regular"
+                        Background="LightGreen" Foreground="Black"
+                        Margin="0 0 0 0" Width="200" Height="105"
+                        HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}"
+                                                CornerRadius="20,0,0,0"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="1">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button Grid.Column="0" Content="Sell 1000 €" 
+                        FontSize="25" FontWeight="Regular"
+                        Background="LightCoral" Foreground="Black"
+                        Margin="200 0 0 0" Width="200" Height="105"
+                        HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="1">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+
+                <!--Elemente zur Steuerung der Zeit (Intervall)-->
+                
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>
